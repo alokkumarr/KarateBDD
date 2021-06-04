@@ -1,0 +1,116 @@
+<testsuite failures="4" name="src/test/java/com/wellsfargo/featurefiles/karate16_DBInteractions.feature" skipped="0" tests="4" time="1.917192">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate16_DBInteractions" name="select stmt TestCase 1" time="1.5219">
+    <failure message="karate16_DBInteractions.feature:16 - path: $, actual: '', expected: 'Karate', reason: not a sub-string">* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rows = db.selectStatement("select * from tools") .................... passed
+* print rows .............................................................. passed
+* match rows contains 'Karate' ............................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:16 - path: $, actual: '', expected: 'Karate', reason: not a sub-string&#13;
+	at ✽.* match rows contains 'Karate' (karate16_DBInteractions.feature:16)</failure>
+  </testcase>
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate16_DBInteractions" name="insert stmt TestCase 2" time="0.174055">
+    <failure message="karate16_DBInteractions.feature:27 - path: $, actual: 'Exception: Invalid object name 'tools'.', expected: 'Success', reason: not equal">* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rows = db.selectStatement("select * from tools") .................... passed
+* print rows .............................................................. passed
+* match rows contains 'Karate' ............................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:16 - path: $, actual: '', expected: 'Karate', reason: not a sub-string&#13;
+	at ✽.* match rows contains 'Karate' (karate16_DBInteractions.feature:16)&#13;
+
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def result = db.insertStatement("Insert into tools values(111,'java','python111')") . passed
+* print result ............................................................ passed
+* match result == "Success" ............................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:27 - path: $, actual: 'Exception: Invalid object name 'tools'.', expected: 'Success', reason: not equal&#13;
+	at ✽.* match result == "Success" (karate16_DBInteractions.feature:27)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped
+* match rows contains "python111" ......................................... skipped</failure>
+  </testcase>
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate16_DBInteractions" name="update stmt TestCase 3" time="0.124316">
+    <failure message="karate16_DBInteractions.feature:40 - assert evaluated to false: rowsAffected &gt;= 1">* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rows = db.selectStatement("select * from tools") .................... passed
+* print rows .............................................................. passed
+* match rows contains 'Karate' ............................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:16 - path: $, actual: '', expected: 'Karate', reason: not a sub-string&#13;
+	at ✽.* match rows contains 'Karate' (karate16_DBInteractions.feature:16)&#13;
+
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def result = db.insertStatement("Insert into tools values(111,'java','python111')") . passed
+* print result ............................................................ passed
+* match result == "Success" ............................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:27 - path: $, actual: 'Exception: Invalid object name 'tools'.', expected: 'Success', reason: not equal&#13;
+	at ✽.* match result == "Success" (karate16_DBInteractions.feature:27)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped
+* match rows contains "python111" ......................................... skipped
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rowsAffected = db.updateStatement("update tools set toolname='sample3' where toolid=111") . passed
+* print rowsAffected ...................................................... passed
+* assert rowsAffected &gt;= 1 ................................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:40 - assert evaluated to false: rowsAffected &gt;= 1&#13;
+	at ✽.* assert rowsAffected &gt;= 1 (karate16_DBInteractions.feature:40)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped
+* match rows contains "python111" ......................................... skipped</failure>
+  </testcase>
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate16_DBInteractions" name="delete stmt TestCase 4" time="0.096922">
+    <failure message="karate16_DBInteractions.feature:52 - assert evaluated to false: rowsAffected1 &gt;= 0">* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rows = db.selectStatement("select * from tools") .................... passed
+* print rows .............................................................. passed
+* match rows contains 'Karate' ............................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:16 - path: $, actual: '', expected: 'Karate', reason: not a sub-string&#13;
+	at ✽.* match rows contains 'Karate' (karate16_DBInteractions.feature:16)&#13;
+
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def result = db.insertStatement("Insert into tools values(111,'java','python111')") . passed
+* print result ............................................................ passed
+* match result == "Success" ............................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:27 - path: $, actual: 'Exception: Invalid object name 'tools'.', expected: 'Success', reason: not equal&#13;
+	at ✽.* match result == "Success" (karate16_DBInteractions.feature:27)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped
+* match rows contains "python111" ......................................... skipped
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rowsAffected = db.updateStatement("update tools set toolname='sample3' where toolid=111") . passed
+* print rowsAffected ...................................................... passed
+* assert rowsAffected &gt;= 1 ................................................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:40 - assert evaluated to false: rowsAffected &gt;= 1&#13;
+	at ✽.* assert rowsAffected &gt;= 1 (karate16_DBInteractions.feature:40)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped
+* match rows contains "python111" ......................................... skipped
+* def db = Java.type("com.wellsfargo.utils.DBUtils") ...................... passed
+* def rowsAffected1 = db.updateStatement("delete from tools where toolid=111") . passed
+* print rowsAffected1 ..................................................... passed
+* assert rowsAffected1 &gt;= 0 ............................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: karate16_DBInteractions.feature:52 - assert evaluated to false: rowsAffected1 &gt;= 0&#13;
+	at ✽.* assert rowsAffected1 &gt;= 0 (karate16_DBInteractions.feature:52)&#13;
+
+* def rows = db.selectStatement("select * from tools where toolid=111") ... skipped
+* print rows .............................................................. skipped</failure>
+  </testcase>
+</testsuite>

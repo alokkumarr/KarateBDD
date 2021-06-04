@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta charset="utf-8">
+    
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    
+<link href="res/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+<link href="res/karate-report.css" rel="stylesheet" type="text/css">
+    
+<link href="favicon.ico" rel="shortcut icon">
+    
+<script src="res/jquery.min.js" type="text/javascript"></script>
+    <script src="res/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="res/bootstrap.min.js" type="text/javascript"></script>
+    <script src="res/karate-report.js" type="text/javascript"></script>
+    
+<title>src.test.java.com.wellsfargo.featurefiles.karate13_restapivalidation</title>
+  
+</head>
+  
+<body>
+    
+<div id="root-container">
+      
+<div id="leftnav">
+        
+<div class="nav-logo">
+          
+<a href="karate-summary.html">
+            <img alt="Karate" src="res/karate-logo.svg">
+          </a>
+          
+<div class="nav-count">
+            
+<div class="bg-success" id="nav-pass">1</div>
+            
+<div class="bg-danger" id="nav-fail">0</div>
+          
+</div>
+        
+</div>
+        
+<div id="nav-type">Scenarios</div>         
+        
+<div id="nav-date">2021-06-03 02:20:44 PM</div>        
+      
+<div class="nav-container">
+<div class="nav-item passed">
+<a href="#[1:6]">[1:6] E2E rest API test </a>
+</div>
+</div>
+</div>
+      
+<div id="content">
+      
+<div class="page-heading alert alert-primary">
+<a href="karate-summary.html">Summary</a><span class="feature-label">|</span><a href="karate-tags.html">Tags</a><span class="feature-label">|</span><span class="feature-label">Feature:</span><span class="feature-name">src/test/java/com/wellsfargo/featurefiles/karate13_restapivalidation.feature</span><span class="feature-description">Karate Test Suite 13 API Validation | This is the rest API to validate the e2e (API Chaining)</span>
+</div>
+<div class="scenario">
+<div class="scenario-heading" id="[1:6]">
+<div class="heading-container">
+<div class="scenario-tags">
+<a class="badge badge-primary" href="karate-tags.html">rest</a>
+</div>
+<span class="scenario-keyword">Scenario: [1:6]</span><span class="scenario-name">E2E rest API test </span>
+</div>
+<div class="scenario-time passed">ms: 3516</div>
+</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#-------------------Creating resources</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container" id="1">
+<div class="step-ref passed">1</div>
+<div class="step-cell passed">Given url "https://jsonplaceholder.typicode.com/posts"</div>
+</div>
+<div class="time-cell passed">7</div>
+</div>
+<div class="preformatted" data-parent="1">14:20:40.919 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js</div>
+<div class="step-row">
+<div class="step-container" id="2">
+<div class="step-ref passed">2</div>
+<div class="step-cell passed">And header Content-type = "application/json; charset=UTF-8"</div>
+</div>
+<div class="time-cell passed">6</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="3">
+<div class="step-ref passed">3</div>
+<div class="step-cell passed">And request</div>
+</div>
+<div class="time-cell passed">288</div>
+</div>
+<div class="preformatted" data-parent="3">{
+    title: 'Karate',
+    body: 'BDD',
+    userId: 100,
+  }</div>
+<div class="step-row">
+<div class="step-container" id="4">
+<div class="step-ref passed">4</div>
+<div class="step-cell passed">When method post</div>
+</div>
+<div class="time-cell passed">1975</div>
+</div>
+<div class="preformatted" data-parent="4">14:20:42.075 request:
+1 &gt; POST https://jsonplaceholder.typicode.com/posts
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Length: 44
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Host: jsonplaceholder.typicode.com
+1 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_251)
+{"title":"Karate","body":"BDD","userId":100}
+
+14:20:43.220 response time in milliseconds: 1144.95
+1 &lt; 201
+1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Access-Control-Expose-Headers: Location
+1 &lt; CF-Cache-Status: DYNAMIC
+1 &lt; CF-RAY: 6597adb84db23c01-BLR
+1 &lt; Cache-Control: no-cache
+1 &lt; Connection: keep-alive
+1 &lt; Content-Length: 70
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Thu, 03 Jun 2021 08:51:16 GMT
+1 &lt; Etag: W/"46-CS7PKZPdOArM2Wwib6qktMwBgDg"
+1 &lt; Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 &lt; Expires: -1
+1 &lt; Location: http://jsonplaceholder.typicode.com/posts/101
+1 &lt; NEL: {"report_to":"cf-nel","max_age":604800}
+1 &lt; Pragma: no-cache
+1 &lt; Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=nfoZEQW1Fe4kFh2nu6kxEvgaddXTJN7czBWSAJF6szJgAhr6mPgZaY%2FVDbt9mDeWZpRxcslL6151E2pYt%2FaCF0vtKUpXq0EkWsJfA3Sqrzvz2sS5bMJe9HQBqqMpk1fCvxCiyxLQFpe8yQ%3D%3D"}],"group":"cf-nel","max_age":604800}
+1 &lt; Server: cloudflare
+1 &lt; Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+1 &lt; Via: 1.1 vegur
+1 &lt; X-Content-Type-Options: nosniff
+1 &lt; X-Powered-By: Express
+1 &lt; X-Ratelimit-Limit: 1000
+1 &lt; X-Ratelimit-Remaining: 994
+1 &lt; X-Ratelimit-Reset: 1622710309
+1 &lt; alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+1 &lt; cf-request-id: 0a72aae72c00003c013d304000000001
+{
+  "title": "Karate",
+  "body": "BDD",
+  "userId": 100,
+  "id": 101
+}</div>
+<div class="step-row">
+<div class="step-container" id="5">
+<div class="step-ref passed">5</div>
+<div class="step-cell passed">Then status 201</div>
+</div>
+<div class="time-cell passed">0</div>
+</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#* def id = response.id</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container" id="6">
+<div class="step-ref passed">6</div>
+<div class="step-cell passed">* def id = 1</div>
+</div>
+<div class="time-cell passed">14</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="7">
+<div class="step-ref passed">7</div>
+<div class="step-cell passed">* print id</div>
+</div>
+<div class="time-cell passed">1</div>
+</div>
+<div class="preformatted" data-parent="7">14:20:43.251 [print] 1</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#-------------------fetching resources</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container" id="8">
+<div class="step-ref passed">8</div>
+<div class="step-cell passed">Given url "https://jsonplaceholder.typicode.com/posts/" + id</div>
+</div>
+<div class="time-cell passed">13</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="9">
+<div class="step-ref passed">9</div>
+<div class="step-cell passed">When method get</div>
+</div>
+<div class="time-cell passed">53</div>
+</div>
+<div class="preformatted" data-parent="9">14:20:43.267 request:
+2 &gt; GET https://jsonplaceholder.typicode.com/posts/1
+2 &gt; Accept-Encoding: gzip,deflate
+2 &gt; Connection: Keep-Alive
+2 &gt; Host: jsonplaceholder.typicode.com
+2 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_251)
+
+14:20:43.314 response time in milliseconds: 42.88
+2 &lt; 200
+2 &lt; Access-Control-Allow-Credentials: true
+2 &lt; Age: 17305
+2 &lt; CF-Cache-Status: HIT
+2 &lt; CF-RAY: 6597adbbcfa03c12-BLR
+2 &lt; Cache-Control: max-age=43200
+2 &lt; Connection: keep-alive
+2 &lt; Content-Type: application/json; charset=utf-8
+2 &lt; Date: Thu, 03 Jun 2021 08:51:16 GMT
+2 &lt; Etag: W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"
+2 &lt; Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+2 &lt; Expires: -1
+2 &lt; NEL: {"report_to":"cf-nel","max_age":604800}
+2 &lt; Pragma: no-cache
+2 &lt; Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=I1vX2d3vkqnJALRUjZKWmytLCDI7Sd9%2BYnY7P4K7hI8I1JnoA5XR%2B4w0EI9bZclvk0TVdyUo8JIcB0J2macxSn8f6e4J1e3sgCd2CGrYZnI1r7Jz0IDUshIwVxSo0b6A8wGkAt9tbTqRpw%3D%3D"}],"group":"cf-nel","max_age":604800}
+2 &lt; Server: cloudflare
+2 &lt; Transfer-Encoding: chunked
+2 &lt; Vary: Origin, Accept-Encoding
+2 &lt; Via: 1.1 vegur
+2 &lt; X-Content-Type-Options: nosniff
+2 &lt; X-Powered-By: Express
+2 &lt; X-Ratelimit-Limit: 1000
+2 &lt; X-Ratelimit-Remaining: 999
+2 &lt; X-Ratelimit-Reset: 1622008821
+2 &lt; alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+2 &lt; cf-request-id: 0a72aae96100003c12c7097000000001
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}</div>
+<div class="step-row">
+<div class="step-container" id="10">
+<div class="step-ref passed">10</div>
+<div class="step-cell passed">Then status 200</div>
+</div>
+<div class="time-cell passed">0</div>
+</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#* assert response.title == Karate</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#----------------- updating resource</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container" id="11">
+<div class="step-ref passed">11</div>
+<div class="step-cell passed">Given url "https://jsonplaceholder.typicode.com/posts/" + id</div>
+</div>
+<div class="time-cell passed">1</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="12">
+<div class="step-ref passed">12</div>
+<div class="step-cell passed">And header Content-type = "application/json; charset=UTF-8"</div>
+</div>
+<div class="time-cell passed">0</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="13">
+<div class="step-ref passed">13</div>
+<div class="step-cell passed">And request "{id: " + id + ", title: 'foo1', body: 'bar1', userId: 1}"</div>
+</div>
+<div class="time-cell passed">9</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="14">
+<div class="step-ref passed">14</div>
+<div class="step-cell passed">When method put</div>
+</div>
+<div class="time-cell passed">503</div>
+</div>
+<div class="preformatted" data-parent="14">14:20:43.329 request:
+3 &gt; PUT https://jsonplaceholder.typicode.com/posts/1
+3 &gt; Accept-Encoding: gzip,deflate
+3 &gt; Connection: Keep-Alive
+3 &gt; Content-Length: 47
+3 &gt; Content-Type: text/plain; charset=UTF-8
+3 &gt; Host: jsonplaceholder.typicode.com
+3 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_251)
+{id: 1, title: 'foo1', body: 'bar1', userId: 1}
+
+14:20:43.829 response time in milliseconds: 497.06
+3 &lt; 200
+3 &lt; Access-Control-Allow-Credentials: true
+3 &lt; CF-Cache-Status: DYNAMIC
+3 &lt; CF-RAY: 6597adbc39843c01-BLR
+3 &lt; Cache-Control: no-cache
+3 &lt; Connection: keep-alive
+3 &lt; Content-Length: 13
+3 &lt; Content-Type: application/json; charset=utf-8
+3 &lt; Date: Thu, 03 Jun 2021 08:51:16 GMT
+3 &lt; Etag: W/"d-p13Thq1mbIznE8TsFv4BmW8SRpg"
+3 &lt; Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+3 &lt; Expires: -1
+3 &lt; NEL: {"report_to":"cf-nel","max_age":604800}
+3 &lt; Pragma: no-cache
+3 &lt; Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=mJAvC1GXtLEaBOZ9aBvd%2B13vMZMlBaOyd%2B8SPIhmpNq9PZvfp33dkxqzUMIHfH5KLJnDKa5ntzDGXBvNCUW4xGnphFHUkQW%2Bd86gxuGJPgVbRizFrG85XRTIeeiGnESL5RYB5qmAcmBI8Q%3D%3D"}],"group":"cf-nel","max_age":604800}
+3 &lt; Server: cloudflare
+3 &lt; Vary: Origin, Accept-Encoding
+3 &lt; Via: 1.1 vegur
+3 &lt; X-Content-Type-Options: nosniff
+3 &lt; X-Powered-By: Express
+3 &lt; X-Ratelimit-Limit: 1000
+3 &lt; X-Ratelimit-Remaining: 993
+3 &lt; X-Ratelimit-Reset: 1622710309
+3 &lt; alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+3 &lt; cf-request-id: 0a72aae99f00003c0154914000000001
+{
+  "id": 1
+}</div>
+<div class="step-row">
+<div class="step-container" id="15">
+<div class="step-ref passed">15</div>
+<div class="step-cell passed">Then status 200</div>
+</div>
+<div class="time-cell passed">0</div>
+</div>
+<div class="step-row">
+<div class="step-container">
+<div class="step-ref passed"></div>
+<div class="step-cell comment">#-------------------deleting resources</div>
+</div>
+<div class="time-cell comment"></div>
+</div>
+<div class="step-row">
+<div class="step-container" id="16">
+<div class="step-ref passed">16</div>
+<div class="step-cell passed">Given url "https://jsonplaceholder.typicode.com/posts/" + id</div>
+</div>
+<div class="time-cell passed">1</div>
+</div>
+<div class="step-row">
+<div class="step-container" id="17">
+<div class="step-ref passed">17</div>
+<div class="step-cell passed">When method delete</div>
+</div>
+<div class="time-cell passed">647</div>
+</div>
+<div class="preformatted" data-parent="17">14:20:43.829 request:
+4 &gt; DELETE https://jsonplaceholder.typicode.com/posts/1
+4 &gt; Accept-Encoding: gzip,deflate
+4 &gt; Connection: Keep-Alive
+4 &gt; Host: jsonplaceholder.typicode.com
+4 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_251)
+
+14:20:44.470 response time in milliseconds: 641.06
+4 &lt; 200
+4 &lt; Access-Control-Allow-Credentials: true
+4 &lt; CF-Cache-Status: DYNAMIC
+4 &lt; CF-RAY: 6597adbf6e983c07-BLR
+4 &lt; Cache-Control: no-cache
+4 &lt; Connection: keep-alive
+4 &lt; Content-Length: 2
+4 &lt; Content-Type: application/json; charset=utf-8
+4 &lt; Date: Thu, 03 Jun 2021 08:51:17 GMT
+4 &lt; Etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+4 &lt; Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+4 &lt; Expires: -1
+4 &lt; NEL: {"report_to":"cf-nel","max_age":604800}
+4 &lt; Pragma: no-cache
+4 &lt; Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=XpdKNVlw8gWuS%2B1Be5ufb8%2BkZZBXmwQcMuebMpmGIB%2FHWTvsm%2F%2FDr%2BhW%2FLwN5Vss7dfzhRcJr5YbhxmgTeTXBoSC%2FJKFZgPVeNJE4VYumv4o4qsjvNRqEtfUPCNuqTk89cRJ33wIS9EtXg%3D%3D"}],"group":"cf-nel","max_age":604800}
+4 &lt; Server: cloudflare
+4 &lt; Vary: Origin, Accept-Encoding
+4 &lt; Via: 1.1 vegur
+4 &lt; X-Content-Type-Options: nosniff
+4 &lt; X-Powered-By: Express
+4 &lt; X-Ratelimit-Limit: 1000
+4 &lt; X-Ratelimit-Remaining: 992
+4 &lt; X-Ratelimit-Reset: 1622710309
+4 &lt; alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400
+4 &lt; cf-request-id: 0a72aaeb9f00003c07a49db000000001
+{}</div>
+<div class="step-row">
+<div class="step-container" id="18">
+<div class="step-ref passed">18</div>
+<div class="step-cell passed">Then status 200</div>
+</div>
+<div class="time-cell passed">0</div>
+</div>
+</div>
+</div>
+    
+</div>   
+  
+</body>
+
+</html>

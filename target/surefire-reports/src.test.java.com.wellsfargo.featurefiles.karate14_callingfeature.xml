@@ -1,0 +1,9 @@
+<testsuite failures="0" name="src/test/java/com/wellsfargo/featurefiles/karate14_callingfeature.feature" skipped="0" tests="1" time="3.496488">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate14_callingfeature" name="Calling Test file 1" time="3.496488">
+    <system-out>* def result = call read("karate14_calledfeature.feature@called1") ........ passed
+* print result.response ................................................... passed
+* assert result.response.title == "Karate" ................................ passed
+* def result = call read("karate14_calledfeature.feature@called2") ........ passed
+* print result.response ................................................... passed</system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,13 @@
+<testsuite failures="0" name="src/test/java/com/wellsfargo/featurefiles/karate08_assingment.feature" skipped="0" tests="1" time="3.977775">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate08_assingment" name="Soap 1.1 URI read from external from file Test 1" time="3.977775">
+    <system-out>Given url "https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx" . passed
+And header Content-Type = "text/xml; charset=utf-8" ....................... passed
+And request read("calcinput.xml") ......................................... passed
+When soap action "http://tempuri.org/Add" ................................. passed
+Then status 200 ........................................................... passed
+* print responseHeaders ................................................... passed
+* match responseHeaders.X-AspNet-Version[0] == "4.0.30319" ................ passed
+* print response .......................................................... passed
+* match //AddResponse/AddResult == 30 ..................................... passed</system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<testsuite failures="0" name="src/test/java/com/wellsfargo/featurefiles/karate11_customvalidation.feature" skipped="0" tests="1" time="0.051438">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate11_customvalidation" name="Custom Validation TestCase 4" time="0.051438">
+    <system-out>* def a = 12 .............................................................. passed
+* def b = "test data" ..................................................... passed
+* def c = false ........................................................... passed
+* def d = 12 .............................................................. passed
+* match a == "#number" .................................................... passed
+* match b == "#string" .................................................... passed
+* match c == "#boolean" ................................................... passed
+* match d == "#number" .................................................... passed</system-out>
+  </testcase>
+</testsuite>

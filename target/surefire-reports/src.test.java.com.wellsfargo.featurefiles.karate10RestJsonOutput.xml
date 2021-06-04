@@ -1,0 +1,17 @@
+<testsuite failures="0" name="src/test/java/com/wellsfargo/featurefiles/karate10RestJsonOutput.feature" skipped="0" tests="1" time="2.373719">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate10RestJsonOutput" name="Rest TestCase 2" time="2.373719">
+    <system-out>Given url "https://reqres.in" ............................................. passed
+And path "/api/users" ..................................................... passed
+And param page = 2 ........................................................ passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* print responseHeaders ................................................... passed
+* print response .......................................................... passed
+* print responseTime ...................................................... passed
+* assert responseTime &lt;= 2000 ............................................. passed
+* assert response.total == 12 ............................................. passed
+* assert response.data[0].first_name == "Michael" ......................... passed
+* assert response.data[0].last_name == "Lawson" ........................... passed
+* assert responseType == "json" ........................................... passed</system-out>
+  </testcase>
+</testsuite>

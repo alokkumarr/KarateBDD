@@ -1,0 +1,272 @@
+
+Feature: Karate Test Suite 18
+  This test suite for db interactions call
+
+  Background: dbInit
+    * def db = Java.type('com.wellsfargo.utils.MyDBUtils')
+
+  @db
+  @select
+  Scenario: select stmt TestCase 1
+    This is for db select stmt test case1
+
+      db select validation 1
+
+    * def rows = db.selectStatement("select * from tools")
+    * print rows
+   # * match rows contains 'Karate'
+
+  @db
+  @insert
+  Scenario: insert stmt TestCase 2
+    This is for db insert stmt test case2
+
+      db select validation 1
+
+    * def result = db.insertStatement("Insert into tools values(2110,'java','python')")
+    * print result
+    * match result == "Success"
+    * def rows = db.selectStatement("select * from tools where toolid=2110")
+    * print rows
+    * match rows contains "python"
+
+  @db
+  @update
+  Scenario: update stmt TestCase 3
+    This is for db update stmt test case3
+
+      db select validation 1
+
+    * def rowseffected = db.updateStatement("update tools set toolname='postman' where toolid=2110")
+    * print rowseffected
+    * assert rowseffected >= 1
+
+  @db
+  @delete
+  Scenario: delete stmt TestCase 4
+    This is for db delete stmt test case4
+
+      db select validation 1
+
+    * def rowseffected = db.deleteStatement("delete from tools where toolid=2110")
+    * print rowseffected
+    * assert rowseffected >= 1
+    * def rows = db.selectStatement("select * from tools where toolid=2110")
+    * print rows
+    * match rows !contains "postman"
+
+
+
+Feature: Karate Test Suite 19
+  This test suite for writing content into file
+
+  Scenario: writing response to file TestCase 1
+    This is for writing response to file test case1
+
+    * def util = Java.type('com.wellsfargo.utils.BDDUtil');
+    Given url "https://jsonplaceholder.typicode.com/posts/1"
+    When method get
+    Then status 200
+    * def result = get response
+    * util.writeToFile("src/test/resources/test.json", result);
+
+  Scenario:  read response from file TestCase 2
+    This is for read response from file test case1
+
+    * def json = read('classpath:test.json')
+    * print json
+
+
+Feature: Karate Test Suite 20
+  This test suite for splunk api
+
+
+  Background: Init
+    * def login =
+    """
+    function(uid, pwd) {
+        var temp = uid + ':' + pwd;
+        var Base64 = Java.type('java.util.Base64');
+        var encoded = Base64.getEncoder().encodeToString(temp.bytes);
+        return 'Basic ' + encoded;
+    }
+    """
+    * def auth = login("palmetoadmin", "P@lmeto@123")
+    * print auth
+    * configure ssl = true
+
+    Given url "https://10.0.0.60:8089"
+    And header Authorization = auth
+
+
+  Scenario: splunk TestCase 1
+    This is for splunk test case1
+
+    Given path "/services/search/jobs"
+    When method get
+    Then status 200
+    * print response
+    * print responseType
+    * match response //feed/author/name == "Splunk"
+
+  Scenario: splunk TestCase 2
+    This is for splunk test case2
+
+    Given path "/services/alerts/alert_actions"
+    When method get
+    Then status 200
+    * print response
+   # * print responseType
+    * match response //feed/entry[1]/title == "email"
+
+  Scenario: splunk TestCase 3
+    This is for splunk test case3
+
+    Given path "/services/alerts/fired_alerts"
+    When method get
+    Then status 200
+    * print response
+   # * print responseType
+     # * match response //feed/content/s:dict/s: key name/s:dict/s: key name == "app"
+    * def res =  get response //feed/entry/content/dict/key/dict/key[@name='app']
+    * print res
+    * match res == "search"
+
+
+
+
+
+########################java classes######################
+
+package com.wellsfargo.utils;
+
+import java.io.File;
+import java.nio.file.Files;
+
+public class BDDUtil {
+
+    public static String getStaticMethod(){
+        return "hello world";
+    }
+
+    public String getNonStaticMethod(){
+        System.out.println("test");
+        return "hello world from non static emthod";
+    }
+
+
+    public static void writeToFile(String filename, String content)
+    {
+        try {
+            File f = new File(filename);
+            Files.write(f.toPath(), content.getBytes());
+            System.out.println("File ==> " + f.getAbsolutePath());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+}
+
+
+#########################################
+
+
+package com.wellsfargo.utils;
+
+import java.sql.*;
+
+public class MyDBUtils
+{
+    private static String dbUrl = "jdbc:sqlserver://10.1.0.63\\SQLEXPRESS;DatabaseName=training;";
+
+    public static String selectStatement(String stmt)
+    {
+        try
+        {
+            Connection con = DriverManager.getConnection(dbUrl,"sa", "sqladmin@123");
+            ResultSet rs = con.createStatement().executeQuery(stmt);
+            String res = "";
+
+            while (rs.next())
+            {
+                for(int i=1; i<=rs.getMetaData().getColumnCount(); i++) {
+                    res += rs.getString(i).toString() + ",";
+                }
+                res += "\n";
+            }
+            rs.close();
+            con.close();
+            return res;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+    }
+
+    public static String insertStatement(String stmt)
+    {
+        try
+        {
+            Connection con = DriverManager.getConnection(dbUrl,"sa", "sqladmin@123");
+            con.createStatement().execute(stmt);
+            con.close();
+            return "Success";
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return "Exception: " + e.getMessage();
+        }
+    }
+
+    public static int updateStatement(String stmt)
+    {
+        return executeUpdateDeleteStmt(stmt);
+    }
+
+    public static int deleteStatement(String stmt)
+    {
+        return executeUpdateDeleteStmt(stmt);
+    }
+
+    private static int executeUpdateDeleteStmt(String stmt)
+    {
+        try
+        {
+            Connection con = DriverManager.getConnection(dbUrl,"sa", "sqladmin@123");
+            int rowsAffected = con.createStatement().executeUpdate(stmt);
+            con.close();
+            return rowsAffected;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+}
+
+
+##################################################
+
+
+
+gradle test -Dkarate.options="--tags @positive,@negative"
+
+gradlew test -Dkarate.options="classpath:karate2/FeatureFiles/Karate02.feature"
+
+
+To run all feature files in a folder:
+=================================================================
+java -jar karate-0.9.6.jar <path_of_feature_file_folder>
+java -jar karate-0.9.6.jar -t "positive" -o "Reports" <path_of_feature_file_folder>
+
+827dc8962750443cb7655c6c5605d660

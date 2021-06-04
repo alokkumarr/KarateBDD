@@ -1,0 +1,8 @@
+<testsuite failures="0" name="src/test/java/com/wellsfargo/featurefiles/karate06_javaclasscall.feature" skipped="0" tests="1" time="0.239882">
+  <testcase classname="src.test.java.com.wellsfargo.featurefiles.karate06_javaclasscall" name="Karate TestCase 1" time="0.239882">
+    <system-out>* def result = ............................................................ passed
+* print result() .......................................................... passed
+* def result1 = ........................................................... passed
+* print result1() ......................................................... passed</system-out>
+  </testcase>
+</testsuite>
